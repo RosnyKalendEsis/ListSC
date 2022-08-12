@@ -1,0 +1,19 @@
+CC = gcc
+EXEC = program.exe
+OBJ = main.o primitive.o
+HEADERS = -I headers
+
+$(EXEC) : $(OBJ)
+	$(CC) $(OBJ) -o $(EXEC)
+
+main.o : main.c
+	$(CC) -c main.c $(HEADERS)
+
+primitive.o : primitive.c
+	$(CC) -c primitive.c $(HEADERS)
+
+run : $(EXEC)
+	./$(EXEC)
+
+clean :
+	rm -rf *.o
